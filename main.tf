@@ -3,7 +3,7 @@ provider "aws" {
 }
 
 resource "aws_iam_role" "example_role" {
-  name = var.role_name
+  name = "my-example-role"  # Hardcoded name
 
   assume_role_policy = jsonencode({
     Version = "2012-10-17",
@@ -20,7 +20,7 @@ resource "aws_iam_role" "example_role" {
 }
 
 resource "aws_iam_role_policy" "example_policy" {
-  name = "example_policy"
+  name = "example-policy"
   role = aws_iam_role.example_role.id
 
   policy = jsonencode({
